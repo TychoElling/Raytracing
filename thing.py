@@ -1,1 +1,1 @@
-message = "PWINT HALLO WEELD"
+message = "PWINT HALLO WEELD!"
