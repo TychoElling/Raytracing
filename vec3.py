@@ -32,6 +32,10 @@ class vec3:
     def __mul__(self,t):
         v1 = vec3(self.e1 * t, self.e2 * t, self.e3 * t)
         return v1
+    def __le__ (self,v):
+        return self.e2 <= v1.e2 and self.e2 <= v1.e2 and self.e3 <= v1.e3
+    def __ge__ (self,v):
+        return not self <= v
 def cross(v,u):
     return vec3(
         u.e2*v.e3 - u.e3*v.e2,
