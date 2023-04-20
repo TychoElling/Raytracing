@@ -17,10 +17,11 @@ class vec3:
         self.e1 *= t
         self.e2 *= t
         self.e3 *= t
-    def __sub(self,v):
-        return self + v.mult(-1)
+    def __sub__(self,v):
+        return self + v *(-1)
     def __truediv__(self,t):
         self.mult(1/t)
+        return self
     def len(self):
         return math.sqrt(self.e1**2 + self.e2**2 + self.e3**2)
     def print(self):
