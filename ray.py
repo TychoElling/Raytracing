@@ -8,9 +8,8 @@ class ray:
         self.z = z
         self.dx = dx
         self.dy = dy
-        self.orig = vec3(x, y, z)
-        self.dir = vec3(dx, dy, dz)
+        self.orig = vec3.vec3(x, y, z)
+        self.dir = vec3.vec3(dx, dy, dz)
 
     def at(self, t):
         return self.orig + self.dir * t
-    
