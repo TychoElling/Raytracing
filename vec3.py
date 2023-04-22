@@ -17,10 +17,11 @@ class vec3:
         self.e1 *= t
         self.e2 *= t
         self.e3 *= t
-    def __sub(self,v):
-        return self + v.mult(-1)
+    def __sub__(self,v):
+        return self + v *(-1)
     def __truediv__(self,t):
         self.mult(1/t)
+        return self
     def len(self):
         return math.sqrt(self.e1**2 + self.e2**2 + self.e3**2)
     def print(self):
@@ -29,8 +30,21 @@ class vec3:
         v1 = vec3(self.e1*v.e1,self.e2*v.e2,self.e3*v.e3)
         return v1
     def __mul__(self,t):
-        v1 = vec3(self.e1 * t, self.e2 * t, self.e3 * t)
+        if isinstance(t,vec3):
+            v1 = vec3(self.e1 * t.e1, self.e2 * t.e1, self.e3 * t.e1)
+        else:
+            v1 = vec3(self.e1 * t, self.e2 * t, self.e3 * t)
         return v1
+    def __le__ (self,v):
+        return self.e2 <= v1.e2 and self.e2 <= v1.e2 and self.e3 <= v1.e3
+    def __ge__ (self,v):
+        return not self <= v
+    def __pos__ (self):   ### I am using + as a print operator
+        print((self.e1,self.e2,self.e3))
+    def sum(self):
+        return self.e1+self.e2+self.e3
+    def dot(self,t):
+        return sum(self*t)
 def cross(v,u):
     return vec3(
         u.e2*v.e3 - u.e3*v.e2,
