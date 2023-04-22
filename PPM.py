@@ -26,3 +26,4 @@ class PPM:
             self.f.write("\n")
        for lst in grid:
             writLine(lst)
+
